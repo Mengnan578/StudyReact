@@ -1,7 +1,15 @@
-import { 
-    StepForwardOutlined
-} from "@ant-design/icons";
+import {
+  StepForwardOutlined,
+  UserOutlined,
+  LockOutlined,
+  CodeSandboxOutlined,
+  MobileOutlined
+} from '@ant-design/icons';
 
 export default {
-    stepForwardOutlined : <StepForwardOutlined />
-}
+  stepForwardOutlined: <StepForwardOutlined />,
+  userIcon: <UserOutlined />,
+  lockOutlined: <LockOutlined />,
+  codeSandboxOutlined: <CodeSandboxOutlined />,
+  mobileOutlined: <MobileOutlined />
+};

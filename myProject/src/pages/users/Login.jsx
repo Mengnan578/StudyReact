@@ -3,17 +3,17 @@ import AccountLogin from './component/AccountLogin';
 import SmCodeLogin from './component/SmCodeLogin';
 import { Form, Input, Button, Row, Col } from 'antd';
 import IconsMap from 'components/IconsMap';
-import logoImg from '../../common/img/logo.svg';
-import "./css/login.less"
+import logoImg from 'common/img/logo.svg';
+import './css/login.less';
 const FormItem = Form.Item;
 
 export default function Login() {
-  const { form } = Form.useForm;
+  const [form] = Form.useForm();
   const [type, setType] = useState(0);
   const submit = () => console.log(submit);
   const componentSelecter = (props) =>
     type === 0 ? <AccountLogin {...props} /> : <SmCodeLogin {...props} />;
-  return (  
+  return (
     <div className="form">
       <div className="logo">
         <img src={logoImg} alt="" />
@@ -22,13 +22,23 @@ export default function Login() {
       <Form form={form} onFinish={submit}>
         {componentSelecter({ form, FormItem, Input })}
         <Row>
-          <Button type="primary">登录</Button>
+          <Button block={true} type="primary">
+            登录
+          </Button>
         </Row>
         <Row>
-          <Col span={6}>忘记密码</Col>
-          <Col span={18}>
-            {!type ? '使用手机号进行登录' : '使用账户名进行登录'}
-            {IconsMap.stepForwardOutlined}
+          <Col span={6} className=".ft-12 login-methods-container">
+            忘记密码
+          </Col>
+          <Col
+            span={18}
+            className="align-right login-methods-container login-methods"
+            onClick={() => setType(!type ? 1 : 0)}
+          >
+            <p>
+              {!type ? '使用手机号进行登录' : '使用账户名进行登录'}
+              {IconsMap.stepForwardOutlined}
+            </p>
           </Col>
         </Row>
       </Form>

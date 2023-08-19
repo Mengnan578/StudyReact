@@ -1,7 +1,18 @@
-import React from 'react'
-
-export default function AccountLogin() {
+import React from 'react';
+import IconsMap from 'components/IconsMap';
+import { loginRule } from 'utils/rules';
+export default function AccountLogin({ Input, FormItem }) {
   return (
-    <div>AccountLogin</div>
-  )
+    <>
+      <FormItem name="accountName" rules={loginRule.userRule} hasFeedback>
+        <Input placeholder="请输入账户名" prefix={IconsMap.userIcon}></Input>
+      </FormItem>
+      <FormItem name="password" rules={loginRule.passwordRule} hasFeedback>
+        <Input
+          placeholder="请输入账密码"
+          prefix={IconsMap.lockOutlined}
+        ></Input>
+      </FormItem>
+    </>
+  );
 }
